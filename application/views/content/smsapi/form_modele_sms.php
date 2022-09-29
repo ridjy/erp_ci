@@ -1,0 +1,126 @@
+
+
+        <div class="boxed">
+
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+                <div id="page-head">
+                    
+                    <!--Page Title-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <div id="page-title">
+                        <h1 class="page-header text-overflow">Plateforme envoi sms</h1>
+                    </div>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End page title-->
+
+
+                    <!--Breadcrumb-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <ol class="breadcrumb">
+					<li><a href="#"><i class="demo-pli-home"></i></a></li>
+					<li><a href="<?php echo site_url('smsapi')?>">SMS</a></li>
+                    <li><a href="<?php echo site_url('smsapi/modelesms')?>">Modèles de SMS</a></li>
+					<li class="active"><?php echo $titre?></li>
+                    </ol>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End breadcrumb-->
+
+                </div>
+
+                
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content">
+                    
+                    <div class="row">
+                                <div class="col-xs-3">
+                                   
+                                </div>
+                                
+                                <div class="col-xs-6">  
+                                    <?php if($msg!=''): ?>
+                                    <div class="alert alert-success">
+                                                <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+                                                <strong></strong> <?php echo $msg; ?>
+                                    </div>
+                                    <?php endif ?>
+                                </div>
+                    </div>      
+                            <br/>
+					
+					<div class="row">
+                          
+                        <div class="col-lg-6">
+                            <div class="panel">
+                            
+                                <form id="" action="<?php echo site_url("$action"); ?>" class="form-horizontal" method="POST">
+                                    <div class="panel-body">
+                                        <p>Modèle de SMS créé par : <span class="text-info"><?php echo $this->session->userdata('logged_in')['nom']; ?></span></p>
+                                        <input type="hidden" name='createur' value="<?php echo $this->session->userdata('logged_in')['login']; ?>">
+                                        <input type="hidden" name='id' value="<?php echo $id; ?>">
+                                        <br/>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label" for="demo-hor-teldestinataire">Emetteur</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name='emetteur' placeholder="Msg en provenance de" class="form-control" value="<?php echo $row['emetteur_modele'] ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label" for="demo-hor-teldestinataire">Nom du modèle</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name='nom_modele' placeholder="nommer ce modèle" class="form-control" value="<?php echo $row['nom_modele'] ?>" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                            </div>
+                        </div>
+                    
+                         <div class="col-lg-6">
+                            <div class="panel">
+                                    <div class="panel-body">
+                                        
+                                        <p class="bord-btm pad-ver text-main text-bold">Aperçu du SMS</p>
+                    
+                                        <!--OTHER VALIDATOR-->
+                                        <!--===================================================-->
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                <textarea name="modele_contenu" placeholder="Tapez ici le message à enregistrer" rows="7" class="form-control" required><?php echo $row['contenu_modele']?></textarea>     
+                                            </div>
+                                            
+                                        </fieldset>
+                                        <!--===================================================-->
+                                        
+                                       <br/> 
+                                       <div class="row">
+                                            <div class="col-md-2"><input class="btn btn-md btn-mint" type="submit" value="Modifier">
+                                            </div>
+                                            <div class="col-md-2"><a href="<?php echo site_url('smsapi/modelesms') ?>" class="btn btn-md btn-danger">Annuler</a>
+                                            </div>    
+                                        </div>
+                    
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+					</form>  
+					
+                </div>
+                <!--===================================================-->
+                <!--End page content-->
+
+            </div>
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+
+
+            
+          
